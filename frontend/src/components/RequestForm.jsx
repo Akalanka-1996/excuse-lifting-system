@@ -70,12 +70,18 @@ const RequestForm = () => {
                 onChange={onChange}>
                 {/* <default value="Default">Abc</default> */}
                 <option style={{color: "red"}}>Select Option</option>
-                <option value="Student ID Card">Student ID Card</option>
-                <option value="Graduation Certificate">Graduation Certificate</option>
-                <option value="University Identification">University Identification</option>
-                <option value="Library Books">Library Books</option>
-                <option value="Student Transcript">Student Transcript</option>
-                <option value="Recommendation">Recommendation</option>
+                <option value="Academic">Academic</option>
+                <option value="Personnal">Personnal</option>
+                <option value="Accident">Accident</option>
+                <option value="Financial">Financial</option>
+                <option value="Work Load">Work Load</option>
+                <option value="Sickness">Sickness</option>
+                <option value="Death">Death</option>
+                <option value="Travel">Travel</option>
+                <option value="Other">Other</option>
+
+
+
               </Form.Control>
             </Form.Group>
             <Form.Group className="mb-3">
