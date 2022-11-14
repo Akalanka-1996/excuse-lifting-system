@@ -3,20 +3,18 @@ import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
-function Register() {
+function TeacherRegister() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    studentId: "",
-    pic: "",
     password: "",
     password2: "",
   });
 
-  const { name, email, studentId, pic, password, password2 } = formData;
+  const { name, email, password, password2 } = formData;
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -54,9 +52,8 @@ function Register() {
       const userData = {
         name,
         email, 
-        studentId,
-        pic,
-        password
+        password,
+        userRole: 'admin'
       }
 
       dispatch(register(userData))
@@ -69,7 +66,7 @@ function Register() {
         <h1>
           <FaUser /> Register
         </h1>
-        <p>Please Create an account</p>
+        <p>Register As a Teacher</p>
       </section>
 
       <section className="form">
@@ -96,7 +93,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <input
               type="text"
               className="form-control"
@@ -106,8 +103,8 @@ function Register() {
               placeholder="Student ID"
               onChange={onChange}
             />
-          </div>
-          <div className="form-group">
+          </div> */}
+          {/* <div className="form-group">
             <input
               type="text"
               className="form-control"
@@ -117,7 +114,7 @@ function Register() {
               placeholder="Photograph"
               onChange={onChange}
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <input
               type="password"
@@ -144,9 +141,6 @@ function Register() {
             <button type="submit" className="btn-register btn-block">
               Register
             </button>
-            <div>
-              <p>Click <span><Link to='/register-teacher'>Here</Link></span> to Register as a Teacher</p>
-            </div>
           </div>
         </form>
       </section>
@@ -160,4 +154,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default TeacherRegister;
