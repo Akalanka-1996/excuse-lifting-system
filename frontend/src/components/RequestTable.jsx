@@ -31,20 +31,20 @@ const RequestTable = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Description</th>
             <th>Name</th>
-            <th>Address</th>
+            <th>Student ID</th>
+            <th>Reason Type</th>
+            <th>Reason Comment</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {requests.map((request) => (
             <tr key={request._id}>
+              <td>{request.name}</td>
+              <td>{request.phone}</td>
               <td>{request.title}</td>
               <td>{request.description}</td>
-              <td>{request.name}</td>
-              <td>{request.address}</td>
               <td>{request.status}</td>
             </tr>
           ))}

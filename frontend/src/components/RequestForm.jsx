@@ -97,8 +97,32 @@ const RequestForm = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
+           
+            
             <Form.Group className="mb-3">
-              <Form.Label>Type</Form.Label>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                required
+                id="name"
+                name="name"
+                value={name}
+                onChange={onChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Student ID</Form.Label>
+              <Form.Control
+                type="text"
+                required
+                id="phone"
+                name="phone"
+                value={phone}
+                onChange={onChange}
+              />
+            </Form.Group>
+             <Form.Group className="mb-3">
+              <Form.Label>Reason Type</Form.Label>
               <Form.Control 
                 as="select" 
                 id="title"
@@ -122,7 +146,7 @@ const RequestForm = () => {
               </Form.Control>
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Reason Comment</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={2}
@@ -134,53 +158,8 @@ const RequestForm = () => {
                 onChange={onChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                required
-                id="name"
-                name="name"
-                value={name}
-                onChange={onChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Student Id</Form.Label>
-              <Form.Control
-                type="text"
-                required
-                id="idPic"
-                name="idPic"
-                placeholder="Insert image URL"
-                value={idPic}
-                onChange={onChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Phone</Form.Label>
-              <Form.Control
-                type="text"
-                required
-                id="phone"
-                name="phone"
-                value={phone}
-                onChange={onChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                type="text"
-                required
-                id="address"
-                name="address"
-                value={address}
-                onChange={onChange}
-              />
-            </Form.Group>
             <Form.Group controlId="formFileSm" className="mb-3">
-              <Form.Label>Small file input example</Form.Label>
+              <Form.Label>Upload Document</Form.Label>
               <Form.Control 
                 type="file" 
                 size="sm" 

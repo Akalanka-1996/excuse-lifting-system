@@ -11,12 +11,12 @@ function Register() {
     name: "",
     email: "",
     studentId: "",
-    pic: "",
+    grade: "",
     password: "",
     password2: "",
   });
 
-  const { name, email, studentId, pic, password, password2 } = formData;
+  const { name, email, studentId, grade, password, password2 } = formData;
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -55,7 +55,7 @@ function Register() {
         name,
         email, 
         studentId,
-        pic,
+        grade,
         password
       }
 
@@ -100,6 +100,17 @@ function Register() {
             <input
               type="text"
               className="form-control"
+              id="grade"
+              name="grade"
+              value={grade}
+              placeholder="Grade"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
               id="studentId"
               name="studentId"
               value={studentId}
@@ -107,7 +118,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <input
               type="text"
               className="form-control"
@@ -117,7 +128,7 @@ function Register() {
               placeholder="Photograph"
               onChange={onChange}
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <input
               type="password"

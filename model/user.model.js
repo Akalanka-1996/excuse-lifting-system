@@ -11,6 +11,9 @@ const userSchema = new Schema({
     studentId:{
         type:String,
     },
+    grade: {
+        type: Number,
+    },
     email:{
         type:String,
         required:true,
