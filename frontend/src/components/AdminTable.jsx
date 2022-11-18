@@ -83,7 +83,7 @@ const AdminTable = () => {
               <td>{request.description}</td>
               <td>{request.name}</td>
               <td>
-                <a href={request.idPic} target="_blank">Click to View </a>
+                <a href={request.pic} target="_blank">Click to View </a>
               </td>
               <td>{request.address}</td>
               <td>{request.status}</td>

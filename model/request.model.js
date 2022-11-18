@@ -21,6 +21,9 @@ const requestSchema = mongoose.Schema({
         type:String,
 
     },
+    pic: {
+        type: String,
+    },
     status:{
         type:String,
         enum:['pending','approved','rejected','posted'],

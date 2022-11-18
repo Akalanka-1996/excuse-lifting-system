@@ -29,7 +29,7 @@ const getRequests = asyncHandler(async (req, res) => {
 // create a request
 
 const createRequest = asyncHandler(async (req, res) => {
-  const { title, description, name, phone, address, idPic } = req.body;
+  const { title, description, name, phone, address, idPic, pic } = req.body;
 
   if (!title || !description || !name) {
     res.status(400);
@@ -43,6 +43,7 @@ const createRequest = asyncHandler(async (req, res) => {
       phone,
       idPic,
       address,
+      pic
     });
 
     const createdRequest = await request.save();

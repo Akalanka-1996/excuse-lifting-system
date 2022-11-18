@@ -9,6 +9,7 @@ const RequestForm = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [picMessage, setPicMessage] = useState(null);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -19,7 +20,11 @@ const RequestForm = () => {
     address: "",
   });
 
-  const { title, description, name, phone, address, idPic } = formData;
+  const [pic, setPic] = useState(
+    "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+  );
+
+  const { title, description, name, phone, address, idPic, } = formData;
 
   const disptach = useDispatch();
 
@@ -40,13 +45,45 @@ const RequestForm = () => {
       idPic,
       phone,
       address,
+      pic
     };
 
     console.log("abc")
-    console.log(requestData)
+    console.log('request', requestData)
     disptach(createRequest(requestData));
     handleClose();
   };
+
+  const postDetails = (pics) => {
+    if (!pics) {
+      return setPicMessage("Please select an Image");
+    }
+
+    setPicMessage(null);
+
+    if (pics.type === "image/jpeg" || pics.type === "image/png") {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "MERNAuthentication");
+      data.append("cloud_name", "dinmf92zr");
+      fetch("https://api.cloudinary.com/v1_1/dinmf92zr/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setPic(data.url.toString());
+          console.log('picture', pic)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      return setPicMessage("Please select an Image");
+    }
+  };
+
 
   return (
     <>
@@ -142,6 +179,15 @@ const RequestForm = () => {
                 onChange={onChange}
               />
             </Form.Group>
+            <Form.Group controlId="formFileSm" className="mb-3">
+              <Form.Label>Small file input example</Form.Label>
+              <Form.Control 
+                type="file" 
+                size="sm" 
+                onChange={(e) => postDetails(e.target.files[0])}
+                />
+              {/* <Form.File /> */}
+           </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
