@@ -12,7 +12,7 @@ const userSchema = new Schema({
         type:String,
     },
     grade: {
-        type: Number,
+        type:String,
     },
     email:{
         type:String,

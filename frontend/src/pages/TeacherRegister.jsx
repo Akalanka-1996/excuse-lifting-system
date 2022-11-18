@@ -10,11 +10,12 @@ function TeacherRegister() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    grade: "",
     password: "",
     password2: "",
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, grade, password, password2 } = formData;
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -52,6 +53,7 @@ function TeacherRegister() {
       const userData = {
         name,
         email, 
+        grade,
         password,
         userRole: 'admin'
       }
@@ -90,6 +92,17 @@ function TeacherRegister() {
               name="email"
               value={email}
               placeholder="Email"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="grade"
+              name="grade"
+              value={grade}
+              placeholder="Grade"
               onChange={onChange}
             />
           </div>

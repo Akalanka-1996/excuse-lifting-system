@@ -53,6 +53,7 @@ const authUser = asyncHandler(async (req,res) => {
             name:user.name,
             studentId:user.studentId,
             email:user.email,
+            grade: user.grade,
             userRole:user.userRole,
             token:generateToken(user._id),
 

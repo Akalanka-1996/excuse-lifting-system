@@ -18,13 +18,14 @@ const RequestForm = () => {
     idPic:"",
     phone: "",
     address: "",
+    grade: "",
   });
 
   const [pic, setPic] = useState(
     "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
   );
 
-  const { title, description, name, phone, address, idPic, } = formData;
+  const { title, description, name, phone, grade, address, idPic, } = formData;
 
   const disptach = useDispatch();
 
@@ -42,6 +43,7 @@ const RequestForm = () => {
       title,
       description,
       name,
+      grade,
       idPic,
       phone,
       address,
@@ -120,6 +122,19 @@ const RequestForm = () => {
                 value={phone}
                 onChange={onChange}
               />
+
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Grade</Form.Label>
+              <Form.Control
+                type="text"
+                required
+                id="grade"
+                name="grade"
+                value={grade}
+                onChange={onChange}
+              />
+              
             </Form.Group>
              <Form.Group className="mb-3">
               <Form.Label>Reason Type</Form.Label>

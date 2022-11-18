@@ -15,8 +15,10 @@ const requestSchema = mongoose.Schema({
     },
     phone:{
         type:String,
-    }
-    ,
+    },
+    grade: {
+        type: String,
+    },
     address:{
         type:String,
 

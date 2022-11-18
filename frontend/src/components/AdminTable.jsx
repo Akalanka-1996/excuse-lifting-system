@@ -13,18 +13,43 @@ const AdminTable = () => {
   );
 
   const { user } = useSelector((state) => state.auth);
+  const [cars, setCars] = useState([])
+  const token = user.token
+  const grade = user.grade
 
   useEffect(() => {
     if (isError) {
       console.log(message);
     }
+    console.log(user)
+    console.log(user.grade)
+    console.log(typeof(user.grade))
 
-    dispatch(getRequests());
+    // dispatch(getRequests());
+    getCompanies()
 
     return () => {
       dispatch(reset());
     };
   }, [dispatch]);
+
+
+  const getCompanies = async () => {
+    try {
+      const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    const {data} = await axios.get(`http://localhost:8080/api/requests/get-requests-by-grade/${grade}`, config)
+    console.log('data', data);
+    setCars(data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
 
   const approveHandler = async (id) => {
     try {
@@ -78,7 +103,7 @@ const AdminTable = () => {
           </tr>
         </thead>
         <tbody>
-          {requests.map((request) => (
+          {cars.map((request) => (
             <tr key={request._id} style={{ fontSize: 15 }}>
                <td>{request.name}</td>
                <td>{request.phone}</td>

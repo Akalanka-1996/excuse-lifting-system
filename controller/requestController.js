@@ -7,9 +7,12 @@ const { roles } = require("../roles");
 const getRequests = asyncHandler(async (req, res) => {
   const role = req.user.userRole;
 
+  const myGrade = req.user.grade.toString()
+  console.log(typeof(myGrade))
+
   switch (role) {
     case "admin":
-      const adminRequests = await Request.find();
+      const adminRequests = await Request.find({$or : [myGrade]});
       res.json(adminRequests);
       break;
     case "post":
@@ -26,10 +29,18 @@ const getRequests = asyncHandler(async (req, res) => {
 
 });
 
+const getRequestsByGrade = asyncHandler(async (req, res) => {
+  console.log('abcd')
+  console.log('grade', req.params.grade)
+  const requests = await Request.find({'grade': req.params.grade})
+
+  res.json(requests)
+})
+
 // create a request
 
 const createRequest = asyncHandler(async (req, res) => {
-  const { title, description, name, phone, address, pic } = req.body;
+  const { title, description, name, grade, phone, address, pic } = req.body;
 
   if (!title || !description || !name) {
     res.status(400);
@@ -40,6 +51,7 @@ const createRequest = asyncHandler(async (req, res) => {
       title,
       description,
       name,
+      grade,
       phone,
       address,
       pic
@@ -165,5 +177,6 @@ module.exports = {
   deleteRequest,
   approveRequest,
   rejectRequest,
-  postRequest
+  postRequest,
+  getRequestsByGrade
 };

@@ -1,9 +1,10 @@
 const router = require('express').Router()
-const {createRequest, getRequests, getRequestByUser, updateRequest, deleteRequest, approveRequest, rejectRequest, postRequest} = require('../controller/requestController')
+const {createRequest, getRequests, getRequestByUser, updateRequest, deleteRequest, approveRequest, rejectRequest, postRequest, getRequestsByGrade} = require('../controller/requestController')
 
 const {protect} = require('../middleware/authMiddleware')
 
 router.route('/').get(protect, getRequests)
+router.route('/get-requests-by-grade/:grade').get(protect, getRequestsByGrade)
 router.route('/create').post(protect, createRequest)
 router.route('/:id').put(protect, updateRequest).delete(protect, deleteRequest)
 router.route('/approve-request/:id').put(approveRequest)
