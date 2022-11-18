@@ -67,11 +67,12 @@ const AdminTable = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Name</th>
-            <th>Student Id</th>
-            <th>Address</th>
+          <th>Student Name</th>
+          <th>Student ID</th>
+            <th>Reason</th>
+            <th>Comments</th>
+           
+            <th>Photo</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -79,13 +80,15 @@ const AdminTable = () => {
         <tbody>
           {requests.map((request) => (
             <tr key={request._id} style={{ fontSize: 15 }}>
+               <td>{request.name}</td>
+               <td>{request.phone}</td>
+
               <td>{request.title}</td>
               <td>{request.description}</td>
-              <td>{request.name}</td>
+             
               <td>
                 <a href={request.pic} target="_blank">Click to View </a>
               </td>
-              <td>{request.address}</td>
               <td>{request.status}</td>
 
               <td>
