@@ -56,7 +56,7 @@ const Login = () => {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login and Request Documents!</p>
+        <p>Excuse Lifting System</p>
       </section>
       <secton className="form">
         <form onSubmit={onSubmit}>

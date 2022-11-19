@@ -90,12 +90,12 @@ const RequestForm = () => {
   return (
     <>
       <Button className="btn-create" variant="primary" onClick={handleShow}>
-        Create Request
+        Make Excuse
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>New Request</Modal.Title>
+          <Modal.Title>New Excuse</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -186,7 +186,7 @@ const RequestForm = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={onSubmit}>
-            Send Request
+            Create Excuse
           </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close

@@ -62,7 +62,7 @@ const AdminTable = () => {
       const res = await axios.put(
         `http://localhost:8080/api/requests/approve-request/${id}`
       );
-      alert("Request Approved");
+      alert("Excuse Approved");
       window.location.reload();
     } catch (error) {
       alert(error);
@@ -80,7 +80,7 @@ const AdminTable = () => {
       const res = await axios.put(
         `http://localhost:8080/api/requests/reject-request/${id}`
       );
-      alert("Request Rejected");
+      alert("Excuse Rejected");
       window.location.reload();
     } catch (error) {
       alert(error);
