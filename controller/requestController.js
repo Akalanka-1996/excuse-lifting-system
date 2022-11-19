@@ -7,12 +7,12 @@ const { roles } = require("../roles");
 const getRequests = asyncHandler(async (req, res) => {
   const role = req.user.userRole;
 
-  const myGrade = req.user.grade.toString()
-  console.log(typeof(myGrade))
+  // const myGrade = req.user.grade.toString()
+  // console.log(typeof(myGrade))
 
   switch (role) {
     case "admin":
-      const adminRequests = await Request.find({$or : [myGrade]});
+      const adminRequests = await Request.find();
       res.json(adminRequests);
       break;
     case "post":

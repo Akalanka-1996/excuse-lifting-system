@@ -12,7 +12,7 @@ const Footer = () => {
         }}>
             <Container>
                 <Row>
-                    <Col className="text-center py-3">Copyright &copy; 2022, All rights reserved</Col>
+                    <Col className="text-center py-3">Arab Open University &copy; 2022, All rights reserved</Col>
                 </Row>
             </Container>
 

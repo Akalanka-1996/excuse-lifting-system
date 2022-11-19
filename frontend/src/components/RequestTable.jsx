@@ -29,13 +29,13 @@ const RequestTable = () => {
   return (
     <div className="request-table">
       <Table striped bordered hover>
-        <thead>
+        <thead style={{backgroundColor: 'blue'}}>
           <tr>
-            <th>Name</th>
-            <th>Student ID</th>
-            <th>Reason Type</th>
-            <th>Reason Comment</th>
-            <th>Status</th>
+            <th style={{color: 'white'}}>Name</th>
+            <th style={{color: 'white'}}>Student ID</th>
+            <th style={{color: 'white'}}>Reason Type</th>
+            <th style={{color: 'white'}}>Reason Comment</th>
+            <th style={{color: 'white'}}>Status</th>
           </tr>
         </thead>
         <tbody>

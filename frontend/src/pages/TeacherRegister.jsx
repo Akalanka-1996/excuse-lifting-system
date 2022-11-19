@@ -165,7 +165,8 @@ function TeacherRegister() {
           </Form>
         </div>
         <div className="col-md-6">
-          <Image src="./img/signup.jpg" thumbnail style={{ border: "none" }} />
+          <img src="./img/teacher.jpeg" width={350} height={350} alt="teacher" />
+          {/* <Image src="./img/teacher.jpeg" thumbnail style={{ border: "none" }} /> */}
         </div>
       </div>
     </div>
