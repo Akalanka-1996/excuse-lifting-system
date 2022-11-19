@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {login, reset} from '../features/auth/authSlice'
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Form, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -50,50 +53,54 @@ const Login = () => {
     dispatch(login(userData))
   };
 
-  return (
-    <>
-      <section className="heading">
-        <h1>
-          <FaSignInAlt /> Login
-        </h1>
-        <p>Excuse Lifting System</p>
-      </section>
-      <secton className="form">
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
+  return ( <div className="container">
+  <div className="row mt-5">
+    <div className="col-md-6">
+      <div className="row mt-5">
+        <h2 className="text-center mb-5 fw-bold fs-1">Login</h2>
+      </div>
+      <div className="row">
+        <Form onSubmit={onSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            {/* <Form.Label>Email address</Form.Label> */}
+            <Form.Control
               type="email"
-              className="form-control"
-              id="email"
-              name="email"
+              placeholder="Enter email"
               value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
+              // onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div className="form-group">
-            <input
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            {/* <Form.Label>
+              {" "}
+              Password <Link to="/fogot">forgot password ?</Link>
+            </Form.Label> */}
+            <Form.Control
               type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={password}
               placeholder="Password"
-              onChange={onChange}
+              value={password}
+              // onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-
-          <div className="form-group">
-            <button type="submit" className="btn-login btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </secton>
-
-      <Footer />
-    </>
-  );
+          </Form.Group>
+          <Button variant="primary" type="submit" className="mb-3">
+            Login
+          </Button>
+          <Form.Text className="text-muted">
+            <p>
+              {" "}
+              New User? <Link to="/register">Register Here</Link>
+            </p>
+          </Form.Text>
+        </Form>
+      </div>
+    </div>
+    <div className="col-md-6">
+      <Image src="./img/login.jpg" thumbnail style={{ border: "none" }} />
+    </div>
+  </div>
+</div>
+);
 };
 
 export default Login;
