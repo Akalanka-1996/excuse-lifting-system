@@ -65,9 +65,12 @@ const Login = () => {
             {/* <Form.Label>Email address</Form.Label> */}
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              className="form-control"
+              id="email"
+              name="email"
               value={email}
-              // onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              onChange={onChange}
             />
           </Form.Group>
 
@@ -78,9 +81,12 @@ const Login = () => {
             </Form.Label> */}
             <Form.Control
               type="password"
-              placeholder="Password"
+              className="form-control"
+              id="password"
+              name="password"
               value={password}
-              // onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              onChange={onChange}
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="mb-3">

@@ -3,7 +3,7 @@ import { FaSignInAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from "react-redux";
-import {login, reset} from '../features/auth/authSlice'
+import { register, reset } from "../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Form, Button, Image, Row, Col } from "react-bootstrap";
@@ -63,7 +63,7 @@ function Register() {
         password
       }
 
-      // dispatch(register(userData))
+      dispatch(register(userData))
     }
   };
 
@@ -73,121 +73,96 @@ function Register() {
         <div className="col-md-6">
           <h2 className="text-center mb-5 fw-bold fs-1">Register</h2>
           <Form onSubmit={onSubmit}>
-            <Form.Group className="mb-3" controlId="formGridMemberName">
-              <Form.Label>Member Name</Form.Label>
-              <Form.Control
-                type="name"
-                placeholder="Enter name"
-                // value={memberName}
-                // onChange={(e) => setMemberName(e.target.value)}
-              />
-            </Form.Group>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              value={name}
+              placeholder="Name"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="grade"
+              name="grade"
+              value={grade}
+              placeholder="Grade"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="studentId"
+              name="studentId"
+              value={studentId}
+              placeholder="Student ID"
+              onChange={onChange}
+            />
+          </div>
+          {/* <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="pic"
+              name="pic"
+              value={pic}
+              placeholder="Photograph"
+              onChange={onChange}
+            />
+          </div> */}
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              value={password}
+              placeholder="Password"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="password2"
+              name="password2"
+              value={password2}
+              placeholder="Confirm password"
+              onChange={onChange}
+            />
+          </div>
 
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridBirthDate">
-                <Form.Label>Birth Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  // value={birthDate}
-                  // onChange={(e) => setBirthDate(e.target.value)}
-                  placeholder="Date of Birth"
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridConfirmPassword">
-                <Form.Label>Profile Picture</Form.Label>
-                <Form.Control type="file" placeholder="Upload your Photo" />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                  // value={city}
-                  // onChange={(e) => setCity(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Avenue</Form.Label>
-                <Form.Select
-                  defaultValue="Choose..."
-                  // value={avenue}
-                  // onChange={(e) => setAvenue(e.target.value)}
-                >
-                  <option>...</option>
-                  <option>Club Service</option>
-                  <option>Professional Development</option>
-                  <option>Community Service</option>
-                  <option>International Service</option>
-                  <option>Sports and Recreational Activities</option>
-                  <option>Public Image</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Acedemic Year</Form.Label>
-                <Form.Select
-                  defaultValue="Choose..."
-                  // value={academicYear}
-                  // onChange={(e) => setAcademicYear(e.target.value)}
-                >
-                  <option>...</option>
-                  <option>1st Year</option>
-                  <option>2nd Year</option>
-                  <option>3rd Year</option>
-                  <option>4th Year</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  value={email}
-                  // onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter email"
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridRACUOKID">
-                <Form.Label>RACUOK ID</Form.Label>
-                <Form.Control
-                  placeholder="RACUOK21_0001"
-                  // value={racId}
-                  // onChange={(e) => setRacId(e.target.value)}
-                />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  // onChange={(e) => setPassword(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridConfirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Confirm Password"
-                  // value={confirmPassword}
-                  // onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-              </Form.Group>
-            </Row>
+           
+        
 
             <Button variant="primary" type="submit">
-              Submit
+              Register
             </Button>
+            <Form.Text className="text-muted">
+            <p>
+              {" "}
+              Click <Link to="/register-teacher">Here</Link> To register as a Teacher
+            </p>
+          </Form.Text>
           </Form>
         </div>
         <div className="col-md-6">
