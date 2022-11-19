@@ -1,10 +1,14 @@
+import React from "react";
+import { FaSignInAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import { FaUser } from "react-icons/fa";
+import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Form, Button, Image, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 function TeacherRegister() {
   const [formData, setFormData] = useState({
@@ -63,16 +67,11 @@ function TeacherRegister() {
   };
 
   return (
-    <>
-      <section className="heading">
-        <h1>
-          <FaUser /> Register
-        </h1>
-        <p>Register As a Teacher</p>
-      </section>
-
-      <section className="form">
-        <form onSubmit={onSubmit}>
+    <div className="container">
+      <div className="row mt-5">
+        <div className="col-md-6">
+          <h2 className="text-center mb-5 fw-bold fs-1">Register as a Teacher</h2>
+          <Form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="text"
@@ -150,20 +149,26 @@ function TeacherRegister() {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn-register btn-block">
+
+           
+        
+
+            <Button variant="primary" type="submit">
               Register
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <section className="login-footer">
-      <Footer />
-
-      </section>
-      
-    </>
+            </Button>
+            {/* <Form.Text className="text-muted">
+            <p>
+              {" "}
+              Click <Link to="/register-teacher">Here</Link> To register as a Teacher
+            </p>
+          </Form.Text> */}
+          </Form>
+        </div>
+        <div className="col-md-6">
+          <Image src="./img/signup.jpg" thumbnail style={{ border: "none" }} />
+        </div>
+      </div>
+    </div>
   );
 }
 
